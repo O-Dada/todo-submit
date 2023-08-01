@@ -3,17 +3,17 @@ import { useState } from "react";
 import faqs from "../faqs";
 import AccordionItem from "./AccordionItem";
 
-function createAccordion(faqsList) {
-  return (
-    <AccordionItem
-      id={faqsList.id}
-      key={faqsList.id}
-      question={faqsList.question}
-      answer={faqsList.answer}
-      toggler={() => handleToggle(faqsList.id)}
-    />
-  );
-}
+// function createAccordion(faqsList) {
+//   return (
+//     <AccordionItem
+//       id={faqsList.id}
+//       key={faqsList.id}
+//       question={faqsList.question}
+//       answer={faqsList.answer}
+//       toggler={() => handleToggle(faqsList.id)}
+//     />
+//   );
+// }
 
 const Accordion = () => {
   const [toggle, setToggle] = useState("0");
@@ -24,6 +24,19 @@ const Accordion = () => {
     }
     setToggle(index);
   };
+
+  function createAccordion(faqsList) {
+    return (
+      <AccordionItem
+        id={faqsList.id}
+        key={faqsList.id}
+        question={faqsList.question}
+        answer={faqsList.answer}
+        toggler={() => handleToggle(faqsList.id)}
+        isToggled={toggle === faqsList.id}
+      />
+    );
+  }
 
   return (
     <div>

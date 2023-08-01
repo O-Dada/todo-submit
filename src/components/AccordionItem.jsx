@@ -7,9 +7,11 @@ const AccordionItem = (props) => {
   return (
     <li className="accordion_item">
       <button onClick={onToggle}>{props.question}</button>
-      <div className="answer_wrapper">
-        <div className="answer">{props.answer}</div>
-      </div>
+      {props.isToggled && (
+        <div className="answer_wrapper">
+          <div className="answer">{props.answer}</div>
+        </div>
+      )}
     </li>
   );
 };
